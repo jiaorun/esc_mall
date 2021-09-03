@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{50} - %msg%n"/>
+    <property name="LOG_HOME" value="./log"/>
+    <!--输出到控制台-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!--info 级别的日志-->
+    <!-- 按照每天生成日志文件 -->
+    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 因此只过滤出level为INFO级别的日志，其他的日志信息经过这个节点会被过滤掉，
+             也就不会进入到后续流程了。如果你不写onMatch、onMismatch标签，那么WARN、ERROR级别的因为大于INFO，
+             也会进入到后续流程 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 过滤级别 -->
+            <level>INFO</level>
+            <!-- 符合条件的打印 -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 不符合条件的过滤掉 -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_HOME}/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <fileNamePattern>${LOG_HOME}/mallLog/info-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!--WARN 级别的日志-->
+    <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_HOME}/warn.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/mallLog/warn-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!--ERROR 级别的日志-->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_HOME}/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/mallLog/error-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 日志输出级别 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="INFO"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+</configuration>

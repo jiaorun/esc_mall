@@ -1,0 +1,9 @@
+com\esc\mall\api\page\PageReqBasis.class
+com\esc\mall\swagger\Swagger2Config.class
+com\esc\mall\api\result\ResultCodeCommon.class
+com\esc\mall\generator\Generator.class
+com\esc\mall\generator\CommonGenerator.class
+com\esc\mall\api\result\MallResult.class
+com\esc\mall\api\page\CommonPage.class
+com\esc\mall\api\common\IMallDaoCommon.class
+com\esc\mall\api\result\IErrorCodeCommon.class
