@@ -39,6 +39,20 @@ public class UmsMember implements Serializable {
     private String phone;
 
     /**
+     * 邮箱
+     *
+     * @mbg.generated
+     */
+    private String email;
+
+    /**
+     * 身份证
+     *
+     * @mbg.generated
+     */
+    private String idCard;
+
+    /**
      * 帐号启用状态:0->禁用；1->启用
      *
      * @mbg.generated
@@ -143,6 +157,8 @@ public class UmsMember implements Serializable {
         sb.append(", password=").append(password);
         sb.append(", nickname=").append(nickname);
         sb.append(", phone=").append(phone);
+        sb.append(", email=").append(email);
+        sb.append(", idCard=").append(idCard);
         sb.append(", status=").append(status);
         sb.append(", createTime=").append(createTime);
         sb.append(", icon=").append(icon);

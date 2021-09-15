@@ -1,6 +1,7 @@
 package com.esc.mall.service;
 
 import com.esc.mall.api.result.MallResult;
+import com.esc.mall.dto.umsMember.UmsMemberRegisterDTO;
 
 /**
  * 会员登录注册 业务接口层
@@ -17,4 +18,13 @@ public interface IUmsMemberService {
      * @return java.lang.String
      */
     String generateAuthCode(String telephone);
+
+    /**
+     * 用户注册
+     * @author jiaorun
+     * @date 2021/09/15 11:08
+     * @param dto
+     * @return void
+     */
+    void register(UmsMemberRegisterDTO dto);
 }
