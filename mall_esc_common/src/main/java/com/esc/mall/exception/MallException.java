@@ -31,6 +31,10 @@ public class MallException extends RuntimeException implements Serializable {
         this.errorMessage = baseErrorInfoInterface.getMessage();
     }
 
+    public MallException(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
     public MallException(long errorCode, String errorMessage) {
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
