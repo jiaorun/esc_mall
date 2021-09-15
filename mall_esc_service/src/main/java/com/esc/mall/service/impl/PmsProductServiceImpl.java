@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class PmsProductServiceImpl implements IPmsProductService {
 
-    private PmsProductMapper pmsProductMapper;
+    private final PmsProductMapper pmsProductMapper;
 
     /**
      * 构造器方式注入mapper对象

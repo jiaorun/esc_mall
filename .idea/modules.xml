@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mall_esc.iml" filepath="$PROJECT_DIR$/mall_esc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall_esc_api/mall_esc_api.iml" filepath="$PROJECT_DIR$/mall_esc_api/mall_esc_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall_esc_common/mall_esc_common.iml" filepath="$PROJECT_DIR$/mall_esc_common/mall_esc_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall_esc_mapper/mall_esc_mapper.iml" filepath="$PROJECT_DIR$/mall_esc_mapper/mall_esc_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall_esc_model/mall_esc_model.iml" filepath="$PROJECT_DIR$/mall_esc_model/mall_esc_model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall_esc_service/mall_esc_service.iml" filepath="$PROJECT_DIR$/mall_esc_service/mall_esc_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall_esc_utils/mall_esc_utils.iml" filepath="$PROJECT_DIR$/mall_esc_utils/mall_esc_utils.iml" />
+    </modules>
+  </component>
+</project>

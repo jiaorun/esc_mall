@@ -19,8 +19,8 @@ import java.util.List;
  * @date 2021/08/16 10:23
  **/
 @Api(tags = {"商品详情 控制层"})
-@RestController
 @RequestMapping("v1/products")
+@RestController
 public class ProductController {
 
     private final IPmsProductService pmsProductService;
