@@ -1,6 +1,6 @@
 package com.esc.mall.service.impl;
 
-import com.esc.mall.dto.product.PmsProductQueryDto;
+import com.esc.mall.dto.product.PmsProductQueryDTO;
 import com.esc.mall.mapper.PmsProductMapper;
 import com.esc.mall.model.PmsProduct;
 import com.esc.mall.service.IPmsProductService;
@@ -30,7 +30,7 @@ public class PmsProductServiceImpl implements IPmsProductService {
     }
 
     @Override
-    public List<PmsProduct> queryPmsProductList(PmsProductQueryDto dto) {
+    public List<PmsProduct> queryPmsProductList(PmsProductQueryDTO dto) {
         PageHelper.startPage(dto.getPageNum(), dto.getPageSize());
         return pmsProductMapper.selectListByKeyword(dto);
     }

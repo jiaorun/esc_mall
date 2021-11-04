@@ -1,7 +1,7 @@
 package com.esc.mall.controller;
 
 import com.esc.mall.api.result.MallResult;
-import com.esc.mall.dto.umsMember.UmsMemberRegisterDTO;
+import com.esc.mall.dto.ums.member.UmsMemberRegisterDTO;
 import com.esc.mall.service.IUmsMemberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
  * @date 2021/09/14 20:13
  **/
 @Api(tags = {"会员登录注册 控制层"})
-@RequestMapping("v1/sso")
+@RequestMapping("v1/member")
 @RestController
 public class UmsMemberController {
 

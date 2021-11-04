@@ -2,6 +2,8 @@ package com.esc.mall.exception;
 
 import com.esc.mall.api.result.MallResult;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,8 +21,9 @@ import java.util.stream.Collectors;
  * @date 2021/08/27 17:16
  **/
 @ControllerAdvice
-@Slf4j
 public class GlobalExceptionHandler {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * 处理自定义异常
@@ -32,7 +35,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = MallException.class)
     @ResponseBody
     public MallResult mallExceptionHandler(MallException e) {
-        log.error("业务异常,异常原因: {}", e.getErrorMessage());
+        LOGGER.error("业务异常,异常原因: {}", e.getErrorMessage());
         return MallResult.failed(e.getErrorCode(), e.getErrorMessage());
     }
 
@@ -46,7 +49,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = NullPointerException.class)
     @ResponseBody
     public MallResult exceptionHandler(NullPointerException e){
-        log.error("空指针异常,异常原因: {}", e);
+        LOGGER.error("空指针异常,异常原因: {}", e);
         return MallResult.failed(ResultInfoEnum.NULL_POINT_FOUND);
     }
 
@@ -60,7 +63,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     public MallResult exceptionHandler(MethodArgumentNotValidException e) {
-        log.error("参数校验异常,异常原因: {}", e);
+        LOGGER.error("参数校验异常,异常原因: {}", e);
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         List<String> collect = fieldErrors.stream()
                 .map(o -> o.getDefaultMessage())
@@ -78,7 +81,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(SQLException.class)
     @ResponseBody
     public MallResult exceptionHandler(SQLException e) {
-        log.error("SQL异常，异常原因: {}", e);
+        LOGGER.error("SQL异常，异常原因: {}", e);
         return MallResult.failed("SQL执行异常", null);
     }
 
@@ -92,7 +95,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public MallResult exceptionHandler(Exception e) {
-        log.error("未知异常,异常原因: {}", e);
+        LOGGER.error("未知异常,异常原因: {}", e);
         return MallResult.failed(ResultInfoEnum.FAILED);
     }
 }

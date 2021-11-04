@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2021/09/02 16:36
  **/
 @SpringBootApplication
-@MapperScan(basePackages = {"com.esc.mall.mapper", "com.esc.mall.api.common"})
+@MapperScan(basePackages = {"com.esc.mall.mapper", "com.esc.mall.dao", "com.esc.mall.api.common"})
 @EnableTransactionManagement
 @EnableSwagger2
 public class MallWebApplication {

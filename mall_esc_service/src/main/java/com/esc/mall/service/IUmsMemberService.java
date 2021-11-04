@@ -1,7 +1,6 @@
 package com.esc.mall.service;
 
-import com.esc.mall.api.result.MallResult;
-import com.esc.mall.dto.umsMember.UmsMemberRegisterDTO;
+import com.esc.mall.dto.ums.member.UmsMemberRegisterDTO;
 
 /**
  * 会员登录注册 业务接口层
