@@ -14,7 +14,7 @@ import java.io.Serializable;
  **/
 @ApiModel(value = "商品查询 请求参数")
 @Data
-public class PmsProductQueryDto extends PageReqBasic implements Serializable {
+public class PmsProductQueryDTO extends PageReqBasic implements Serializable {
 
     private static final long serialVersionUID = 4647509317467542592L;
 

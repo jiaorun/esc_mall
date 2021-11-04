@@ -42,8 +42,8 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.esc.mall.mapper"
                              targetProject="mall_esc_mapper\src\main\java"/>
         <!--生成全部表tableName设为%-->
-        <table tableName="ums_member" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <table tableName="ums_role_permission_relation" enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

@@ -1,6 +1,6 @@
 package com.esc.mall.service;
 
-import com.esc.mall.dto.product.PmsProductQueryDto;
+import com.esc.mall.dto.product.PmsProductQueryDTO;
 import com.esc.mall.model.PmsProduct;
 
 import java.util.List;
@@ -19,5 +19,5 @@ public interface IPmsProductService {
      * @param dto
      * @return java.util.List<com.esc.mall.model.PmsProduct>
      */
-    List<PmsProduct> queryPmsProductList(PmsProductQueryDto dto);
+    List<PmsProduct> queryPmsProductList(PmsProductQueryDTO dto);
 }

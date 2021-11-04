@@ -1,4 +1,4 @@
-package com.esc.mall.dto.umsMember;
+package com.esc.mall.dto.ums.member;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
