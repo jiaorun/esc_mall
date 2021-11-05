@@ -31,9 +31,7 @@ public class MallResult<T> implements Serializable {
      */
     private T data;
 
-    public MallResult() {
-
-    }
+    public MallResult() {}
 
     public MallResult(long code, String message) {
         this.code = code;
@@ -77,8 +75,8 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 成功返回结果
-     * @param data
      * @param message
+     * @param data
      * @param <T>
      * @return
      */
@@ -88,11 +86,10 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 失败未返回结果
-     * @author jiaorun
-     * @date 2021/08/27 17:27
      * @param code
      * @param message
-     * @return com.esc.mall.api.result.MallResult<T>
+     * @param <T>
+     * @return
      */
     public static <T> MallResult<T> failed(long code, String message) {
         return new MallResult<T>(code, message);
@@ -132,10 +129,9 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 未登录
-     * @author jiaorun
-     * @data 2021/11/4 16:20
      * @param data
-     * @return com.esc.mall.api.result.MallResult<T>
+     * @param <T>
+     * @return
      */
     public static <T> MallResult<T> unauthorized(T data) {
         return new MallResult<T>(ResultInfoEnum.UNAUTHORIZED.getCode(), ResultInfoEnum.UNAUTHORIZED.getMessage(), data);
@@ -143,10 +139,9 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 未授权
-     * @author jiaorun
-     * @data 2021/11/4 16:23
      * @param data
-     * @return com.esc.mall.api.result.MallResult<T>
+     * @param <T>
+     * @return
      */
     public static <T> MallResult<T> forbidden(T data) {
         return new MallResult<T>(ResultInfoEnum.FORBIDDEN.getCode(), ResultInfoEnum.FORBIDDEN.getMessage(), data);

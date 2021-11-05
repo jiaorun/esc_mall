@@ -1,5 +1,6 @@
 package com.esc.mall.service;
 
+import com.esc.mall.dto.ums.admin.UmsAdminRegisterDTO;
 import com.esc.mall.model.UmsAdmin;
 import com.esc.mall.model.UmsPermission;
 
@@ -29,4 +30,23 @@ public interface IUmsAdminService {
      * @return java.util.List<com.esc.mall.model.UmsPermission>
      */
     List<UmsPermission> getPermissionList(Long adminId);
+
+    /**
+     * 注册
+     * @author jiaorun
+     * @data 2021/11/4 20:13
+     * @param dto
+     * @return int
+     */
+    int register(UmsAdminRegisterDTO dto);
+
+    /**
+     * 登录
+     * @author jiaorun
+     * @data 2021/11/5 9:26
+     * @param username
+     * @param password
+     * @return java.lang.String
+     */
+    String login(String username, String password);
 }

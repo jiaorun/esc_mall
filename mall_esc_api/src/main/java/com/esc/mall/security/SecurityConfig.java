@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,18 +35,26 @@ import java.util.List;
 @EnableGlobalMethodSecurity(prePostEnabled = true)  //启用Security的前置注解
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final IUmsAdminService umsAdminService;
+    /**
+     * 变量方式注入应尽量避免，使用构造器方式或者set方式进行注入，具体的话如果是强制依赖的话
+     * 就使用构造器方式，选择依赖的话就使用set方式
+     */
+    private IUmsAdminService umsAdminService;
 
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
     private final RestfulAccessDeniedHandler restfulAccessDeniedHandler;
 
     @Autowired
-    public SecurityConfig(IUmsAdminService umsAdminService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
+    public SecurityConfig(RestAuthenticationEntryPoint restAuthenticationEntryPoint,
                           RestfulAccessDeniedHandler restfulAccessDeniedHandler) {
-        this.umsAdminService = umsAdminService;
         this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
         this.restfulAccessDeniedHandler = restfulAccessDeniedHandler;
+    }
+
+    @Autowired
+    public void setUmsAdminService(IUmsAdminService umsAdminService) {
+        this.umsAdminService = umsAdminService;
     }
 
     @Override
@@ -67,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs/**"
                 )
                 .permitAll()
-                .antMatchers("/admin/login", "/admin/register") //对登录注册要允许匿名访问
+                .antMatchers("/v1/admin/login", "/v1/admin/register") //对登录注册要允许匿名访问
                 .permitAll()
                 .antMatchers(HttpMethod.OPTIONS) //跨域请求会先进行一次options请求
                 .permitAll()
@@ -83,36 +92,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(restAuthenticationEntryPoint);
     }
 
-    /**
-     * 获取用户及对应的角色信息
-     * @author jiaorun
-     * @data 2021/11/4 10:45 
-     * @param auth 
-     * @return void
-     */       
+    // 获取用户及对应的角色信息
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService())
-                .passwordEncoder(passwordEncoder());
+                .passwordEncoder(myPasswordEncode());
     }
 
-    /**
-     * 加密
-     * @author jiaorun
-     * @data 2021/11/4 11:15
-     * @return org.springframework.security.crypto.password.PasswordEncoder
-     */
+    // 加密
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * 获取用户登录信息
-     * @author jiaorun
-     * @data 2021/11/4 10:46
-     * @return org.springframework.security.core.userdetails.UserDetailsService
-     */
+    // 自定义加密比较器
+    @Bean
+    public MyPasswordEncode myPasswordEncode() {
+        return new MyPasswordEncode();
+    }
+
+    // 获取用户登录信息
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> {
@@ -128,5 +127,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter() {
         return new JwtAuthenticationTokenFilter();
+    }
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception{
+        return super.authenticationManagerBean();
     }
 }
