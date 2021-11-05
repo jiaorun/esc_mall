@@ -8,13 +8,11 @@ import com.esc.mall.mapper.UmsMemberMapper;
 import com.esc.mall.model.UmsMember;
 import com.esc.mall.model.UmsMemberExample;
 import com.esc.mall.service.IUmsMemberService;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -37,17 +35,20 @@ public class UmsMemberServiceImpl implements IUmsMemberService {
     private Long AUTH_CODE_EXPIRE_SECONDS;
     @Value("${default_member_level}")
     private Long DEFAULT_MEMBER_LEVEL;
-    @Value("${password_encode_num}")
-    public int PASSWORD_ENCODE_NUM;
 
     private final RedisUtils redisUtils;
 
     private final UmsMemberMapper umsMemberMapper;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    public UmsMemberServiceImpl(RedisUtils redisUtils, UmsMemberMapper umsMemberMapper) {
+    public UmsMemberServiceImpl(RedisUtils redisUtils,
+                                UmsMemberMapper umsMemberMapper,
+                                PasswordEncoder passwordEncoder) {
         this.redisUtils = redisUtils;
         this.umsMemberMapper = umsMemberMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -77,7 +78,7 @@ public class UmsMemberServiceImpl implements IUmsMemberService {
         example.or(example.createCriteria().andEmailEqualTo(dto.getEmail()));
         example.or(example.createCriteria().andIdCardEqualTo(dto.getIdCard()));
         List<UmsMember> umsMembers = umsMemberMapper.selectByExample(example);
-        if(!CollectionUtils.isEmpty(umsMembers)) {
+        if(umsMembers != null || umsMembers.size() > 0) {
             Asserts.fail("用户已存在");
         }
         //3. 执行用户添加操作
@@ -85,7 +86,8 @@ public class UmsMemberServiceImpl implements IUmsMemberService {
         umsMember.setUsername(dto.getUsername());
         umsMember.setNickname(dto.getNickName());
         //密码使用MD5进行加密，以手机号为盐值
-        umsMember.setPassword(new SimpleHash("MD5", dto.getPassword(), dto.getTelephone(), PASSWORD_ENCODE_NUM).toString());
+        String encodePassword = passwordEncoder.encode(dto.getPassword());
+        umsMember.setPassword(encodePassword);
         umsMember.setPhone(dto.getTelephone());
         umsMember.setEmail(dto.getEmail());
         umsMember.setIdCard(dto.getIdCard());

@@ -17,7 +17,7 @@ public interface BaseMallDaoInterface<T> {
     /**
      * 通过关键字查询列表(分页)
      * @author jiaorun
-     * @date 2021/08/16 17:12
+     * @data 2021/11/5 16:22
      * @param o
      * @return java.util.List<T>
      */

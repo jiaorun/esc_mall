@@ -25,10 +25,7 @@ public class ProductController {
 
     private final IPmsProductService pmsProductService;
 
-    /**
-     * 构造器方式注入service对象
-     * @param pmsProductService
-     */
+    // 构造器方式注入service对象
     @Autowired
     public ProductController(IPmsProductService pmsProductService) {
         this.pmsProductService = pmsProductService;

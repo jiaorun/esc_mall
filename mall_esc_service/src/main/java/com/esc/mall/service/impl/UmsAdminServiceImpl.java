@@ -1,17 +1,30 @@
 package com.esc.mall.service.impl;
 
+import com.esc.mall.JWTTokenUtils;
 import com.esc.mall.dao.UmsAdminRoleRelationDao;
+import com.esc.mall.dto.ums.admin.UmsAdminRegisterDTO;
+import com.esc.mall.exception.Asserts;
 import com.esc.mall.mapper.UmsAdminMapper;
 import com.esc.mall.model.UmsAdmin;
 import com.esc.mall.model.UmsAdminExample;
 import com.esc.mall.model.UmsPermission;
+import com.esc.mall.security.MyPasswordEncode;
 import com.esc.mall.service.IUmsAdminService;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.Permission;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,14 +36,38 @@ import java.util.List;
 @Transactional
 public class UmsAdminServiceImpl implements IUmsAdminService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);
+
+    @Value("${password_salt}")
+    private String PASSWORD_SALT;
+
+    @Value("${password_encode_num}")
+    private int PASSWORD_ENCODE_NUM;
+
     private final UmsAdminMapper umsAdminMapper;
 
     private final UmsAdminRoleRelationDao umsAdminRoleRelationDao;
 
+    private final MyPasswordEncode myPasswordEncode;
+
+    private final JWTTokenUtils jwtTokenUtils;
+
+    private UserDetailsService userDetailsService;
+
     @Autowired
-    public UmsAdminServiceImpl(UmsAdminMapper umsAdminMapper, UmsAdminRoleRelationDao umsAdminRoleRelationDao) {
+    public UmsAdminServiceImpl(UmsAdminMapper umsAdminMapper,
+                               UmsAdminRoleRelationDao umsAdminRoleRelationDao,
+                               MyPasswordEncode myPasswordEncode,
+                               JWTTokenUtils jwtTokenUtils) {
         this.umsAdminMapper = umsAdminMapper;
         this.umsAdminRoleRelationDao = umsAdminRoleRelationDao;
+        this.myPasswordEncode = myPasswordEncode;
+        this.jwtTokenUtils = jwtTokenUtils;
+    }
+
+    @Autowired
+    public void setUserDetailsService(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
     }
 
     @Override
@@ -47,5 +84,41 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
     @Override
     public List<UmsPermission> getPermissionList(Long adminId) {
         return umsAdminRoleRelationDao.selectPermissionList(adminId);
+    }
+
+    @Override
+    public int register(UmsAdminRegisterDTO dto) {
+        UmsAdmin umsAdmin = new UmsAdmin();
+        BeanUtils.copyProperties(dto, umsAdmin);
+        umsAdmin.setCreateTime(new Date());
+        umsAdmin.setStatus(1);
+        //查询是否存在相同用户名
+        UmsAdminExample example = new UmsAdminExample();
+        example.createCriteria().andUsernameEqualTo(umsAdmin.getUsername());
+        List<UmsAdmin> adminList = umsAdminMapper.selectByExample(example);
+        if(adminList != null && adminList.size() > 0) {
+            Asserts.fail("存在相同用户名！");
+        }
+        //将密码进行加密
+        String encodePassword = new SimpleHash("MD5", umsAdmin.getPassword(), PASSWORD_SALT, PASSWORD_ENCODE_NUM).toString();
+        umsAdmin.setPassword(encodePassword);
+        return umsAdminMapper.insert(umsAdmin);
+    }
+
+    @Override
+    public String login(String username, String password) {
+        String token = null;
+        try {
+            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            if(!myPasswordEncode.matches(password, userDetails.getPassword())) {
+                Asserts.fail("密码不正确");
+            }
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            token = jwtTokenUtils.generateToken(userDetails);
+        }catch (AuthenticationException e) {
+            LOGGER.warn("登录异常:{}", e.getMessage());
+        }
+        return token;
     }
 }

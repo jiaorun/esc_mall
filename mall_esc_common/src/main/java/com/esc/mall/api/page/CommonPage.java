@@ -63,7 +63,7 @@ public class CommonPage<T> implements Serializable {
     /**
      * 将SpringData分页后的list转为分页信息
      * @author jiaorun
-     * @date 2021/08/16 15:43
+     * @data 2021/11/5 16:22
      * @param pageInfo
      * @return com.esc.mall.api.page.CommonPage<T>
      */
