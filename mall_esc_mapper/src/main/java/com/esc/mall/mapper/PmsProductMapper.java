@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  **/
 @Mapper
 @Component
-public interface PmsProductMapper extends BaseMallDaoInterface<PmsProduct> {
+public interface PmsProductMapper{
     
     int deleteByPrimaryKey(Long id);
 

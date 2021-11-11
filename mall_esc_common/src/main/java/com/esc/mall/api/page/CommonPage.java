@@ -1,8 +1,8 @@
 package com.esc.mall.api.page;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import lombok.Data;
+import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
 import java.util.List;
@@ -69,11 +69,11 @@ public class CommonPage<T> implements Serializable {
      */
     public static <T> CommonPage<T> restPage(Page<T> pageInfo) {
         CommonPage<T> result = new CommonPage<T>();
-        result.setTotalPage(pageInfo.getPages());
-        result.setPageNum(pageInfo.getPageNum());
-        result.setPageSize(pageInfo.getPageSize());
-        result.setTotal(pageInfo.getTotal());
-        result.setList(pageInfo.getResult());
+        result.setTotalPage(pageInfo.getTotalPages());
+        result.setPageNum(pageInfo.getNumber());
+        result.setPageSize(pageInfo.getSize());
+        result.setTotal(pageInfo.getTotalElements());
+        result.setList(pageInfo.getContent());
         return result;
     }
 }

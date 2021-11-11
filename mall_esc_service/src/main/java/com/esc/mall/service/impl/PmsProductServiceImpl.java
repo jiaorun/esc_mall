@@ -1,5 +1,6 @@
 package com.esc.mall.service.impl;
 
+import com.esc.mall.dao.IPmsProductDao;
 import com.esc.mall.dto.product.PmsProductQueryDTO;
 import com.esc.mall.mapper.PmsProductMapper;
 import com.esc.mall.model.PmsProduct;
@@ -18,20 +19,20 @@ import java.util.List;
 @Service
 public class PmsProductServiceImpl implements IPmsProductService {
 
-    private final PmsProductMapper pmsProductMapper;
+    private final IPmsProductDao pmsProductDao;
 
     /**
      * 构造器方式注入mapper对象
-     * @param pmsProductMapper
+     * @param pmsProductDao
      */
     @Autowired
-    public PmsProductServiceImpl(PmsProductMapper pmsProductMapper) {
-        this.pmsProductMapper = pmsProductMapper;
+    public PmsProductServiceImpl(IPmsProductDao pmsProductDao) {
+        this.pmsProductDao = pmsProductDao;
     }
 
     @Override
     public List<PmsProduct> queryPmsProductList(PmsProductQueryDTO dto) {
         PageHelper.startPage(dto.getPageNum(), dto.getPageSize());
-        return pmsProductMapper.selectListByKeyword(dto);
+        return pmsProductDao.selectListByKeyword(dto);
     }
 }

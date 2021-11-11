@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.esc.mall.dao.UmsAdminRoleRelationDao">
+<mapper namespace="com.esc.mall.dao.IUmsAdminRoleRelationDao">
     <!-- 查询用户所有权限 -->
     <!-- resultMap的类型需要引用其他文件的值时，需要指定被引用文件的namespace+resultMap -->
     <select id="selectPermissionList" parameterType="java.lang.Long" resultMap="com.esc.mall.mapper.UmsPermissionMapper.BaseResultMap">

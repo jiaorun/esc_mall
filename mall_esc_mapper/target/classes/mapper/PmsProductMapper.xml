@@ -579,34 +579,4 @@
             product_category_name         = #{productCategoryName,jdbcType=VARCHAR}
         where id = #{id,jdbcType=BIGINT}
     </update>
-
-    <!-- 分页查询商品列表 -->
-    <select id="selectListByKeyword" resultMap="ResultMapWithBLOBs">
-        SELECT
-        <include refid="Base_Column_List"/>
-        ,
-        <include refid="Blob_Column_List"/>
-        FROM pms_product
-        <where>
-            <if test="name != null and name != ''">
-                `name` LIKE CONCAT(CONCAT('%', #{name}, '%'))
-            </if>
-            <if test="productSn != null and productSn != ''">
-                product_sn = #{productSn, jdbcType=VARCHAR}
-            </if>
-            <if test="productCategoryId != null">
-                product_category_id = #{productCategoryId, jdbcType=BIGINT}
-            </if>
-            <if test="brandId != null">
-                brand_id = #{brandId, jdbcType=BIGINT}
-            </if>
-            <if test="publishStatus != null">
-                publish_status = #{publishStatus, jdbcType=INTEGER}
-            </if>
-            <if test="verifyStatus != null">
-                verify_status = #{verifyStatus, jdbcType=INTEGER}
-            </if>
-        </where>
-        ORDER BY sale DESC
-    </select>
 </mapper>
