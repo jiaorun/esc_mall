@@ -14,6 +14,7 @@ public enum ResultInfoEnum implements BaseErrorInfoInterface {
     NOT_FOUND(404, "未找到该资源"),
     NULL_POINT_FOUND(407, "空指针异常!"),
     USERNAME_PASSWORD_ERROR(408, "用户名或密码错误"),
+    BUSINESS_ERROR(410, "业务异常"),
     FAILED(500, "服务器内部错误!"),
     SERVER_BUSY(503,"服务器正忙，请稍后再试!");
 

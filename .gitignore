@@ -6,7 +6,7 @@
 *.iml
 out
 gen
-!/log/
 !/.idea/
-!/mall_esc.iml
+!/log/
 !/.gitignore
+!/mall_esc.iml

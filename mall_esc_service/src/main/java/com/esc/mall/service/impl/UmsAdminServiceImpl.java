@@ -1,7 +1,7 @@
 package com.esc.mall.service.impl;
 
 import com.esc.mall.JWTTokenUtils;
-import com.esc.mall.dao.UmsAdminRoleRelationDao;
+import com.esc.mall.dao.IUmsAdminRoleRelationDao;
 import com.esc.mall.dto.ums.admin.UmsAdminRegisterDTO;
 import com.esc.mall.exception.Asserts;
 import com.esc.mall.mapper.UmsAdminMapper;
@@ -46,7 +46,7 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
 
     private final UmsAdminMapper umsAdminMapper;
 
-    private final UmsAdminRoleRelationDao umsAdminRoleRelationDao;
+    private final IUmsAdminRoleRelationDao umsAdminRoleRelationDao;
 
     private final MyPasswordEncode myPasswordEncode;
 
@@ -56,7 +56,7 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
 
     @Autowired
     public UmsAdminServiceImpl(UmsAdminMapper umsAdminMapper,
-                               UmsAdminRoleRelationDao umsAdminRoleRelationDao,
+                               IUmsAdminRoleRelationDao umsAdminRoleRelationDao,
                                MyPasswordEncode myPasswordEncode,
                                JWTTokenUtils jwtTokenUtils) {
         this.umsAdminMapper = umsAdminMapper;

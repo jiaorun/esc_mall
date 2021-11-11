@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mall_esc_mapper" />
+        <module name="mall_esc_api" />
+        <module name="mall_esc_service" />
+        <module name="mall_esc_elasticsearch" />
+        <module name="mall_esc_model" />
+        <module name="mall_esc_common" />
+        <module name="mall_esc_utils" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mall_esc" target="8" />
+      <module name="mall_esc_api" target="8" />
+      <module name="mall_esc_common" target="8" />
+      <module name="mall_esc_elasticsearch" target="8" />
+      <module name="mall_esc_mapper" target="8" />
+      <module name="mall_esc_model" target="8" />
+      <module name="mall_esc_service" target="8" />
+      <module name="mall_esc_utils" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mall_esc_api" options="-parameters" />
+      <module name="mall_esc_common" options="-parameters" />
+      <module name="mall_esc_elasticsearch" options="-parameters" />
+      <module name="mall_esc_mapper" options="-parameters" />
+      <module name="mall_esc_model" options="-parameters" />
+      <module name="mall_esc_service" options="-parameters" />
+      <module name="mall_esc_utils" options="-parameters" />
+    </option>
+  </component>
+</project>
