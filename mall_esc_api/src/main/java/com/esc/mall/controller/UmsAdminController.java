@@ -26,7 +26,7 @@ import java.util.Map;
  * @date 2021/11/3 15:32
  **/
 @Api(tags = {"后台用户登录注册 控制层"})
-@RequestMapping("v1/admin")
+@RequestMapping("v1/ums/admin")
 @RestController
 public class UmsAdminController {
 
@@ -42,8 +42,8 @@ public class UmsAdminController {
         this.umsAdminService = umsAdminService;
     }
 
-    @ApiOperation(value = "用户注册")
-    @PostMapping(value = "/register")
+    @ApiOperation("用户注册")
+    @PostMapping("/register")
     public MallResult register(@RequestBody UmsAdminRegisterDTO dto) {
         int count = umsAdminService.register(dto);
         if(count != 1) {
@@ -53,8 +53,8 @@ public class UmsAdminController {
         return MallResult.success();
     }
 
-    @ApiOperation(value = "登录")
-    @PostMapping(value = "/login")
+    @ApiOperation("登录")
+    @PostMapping("/login")
     public MallResult login(@RequestBody UmsAdminLoginDTO dto) {
         String token = umsAdminService.login(dto.getUsername(), dto.getPassword());
         if(token == null) {

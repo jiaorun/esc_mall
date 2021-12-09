@@ -102,7 +102,7 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
         //将密码进行加密
         String encodePassword = new SimpleHash("MD5", umsAdmin.getPassword(), PASSWORD_SALT, PASSWORD_ENCODE_NUM).toString();
         umsAdmin.setPassword(encodePassword);
-        return umsAdminMapper.insert(umsAdmin);
+        return umsAdminMapper.insertSelective(umsAdmin);
     }
 
     @Override

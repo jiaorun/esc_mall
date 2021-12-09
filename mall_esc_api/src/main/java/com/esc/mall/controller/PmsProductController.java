@@ -2,7 +2,7 @@ package com.esc.mall.controller;
 
 import com.esc.mall.api.page.CommonPage;
 import com.esc.mall.api.result.MallResult;
-import com.esc.mall.dto.product.PmsProductQueryDTO;
+import com.esc.mall.dto.pms.product.PmsProductQueryDTO;
 import com.esc.mall.exception.ResultInfoEnum;
 import com.esc.mall.model.PmsProduct;
 import com.esc.mall.service.IPmsProductService;
@@ -19,20 +19,20 @@ import java.util.List;
  * @date 2021/08/16 10:23
  **/
 @Api(tags = {"商品详情 控制层"})
-@RequestMapping("v1/products")
+@RequestMapping("v1/pms/products")
 @RestController
-public class ProductController {
+public class PmsProductController {
 
     private final IPmsProductService pmsProductService;
 
     // 构造器方式注入service对象
     @Autowired
-    public ProductController(IPmsProductService pmsProductService) {
+    public PmsProductController(IPmsProductService pmsProductService) {
         this.pmsProductService = pmsProductService;
     }
 
-    @ApiOperation(value = "商品列表")
-    @GetMapping(value = "/list")
+    @ApiOperation("商品列表")
+    @GetMapping("/list")
     public MallResult<PmsProduct> list(PmsProductQueryDTO dto) {
         List<PmsProduct> pmsProductList = pmsProductService.queryPmsProductList(dto);
         return new MallResult(ResultInfoEnum.SUCCESS, CommonPage.restPage(pmsProductList));

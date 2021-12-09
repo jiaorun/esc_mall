@@ -1,6 +1,6 @@
 package com.esc.mall.service;
 
-import com.esc.mall.dto.product.PmsProductQueryDTO;
+import com.esc.mall.dto.pms.product.PmsProductQueryDTO;
 import com.esc.mall.model.PmsProduct;
 
 import java.util.List;

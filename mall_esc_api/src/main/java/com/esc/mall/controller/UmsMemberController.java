@@ -16,7 +16,7 @@ import javax.validation.Valid;
  * @date 2021/09/14 20:13
  **/
 @Api(tags = {"会员登录注册 控制层"})
-@RequestMapping("v1/member")
+@RequestMapping("v1/ums/member")
 @RestController
 public class UmsMemberController {
 
@@ -27,14 +27,14 @@ public class UmsMemberController {
         this.umsMemberService = umsMemberService;
     }
 
-    @ApiOperation(value = "获取验证码")
+    @ApiOperation("获取验证码")
     @GetMapping("/getAuthCode")
     public MallResult getAuthCode(@RequestParam String telephone) {
         String authCode = umsMemberService.generateAuthCode(telephone);
         return MallResult.success("验证码获取成功！", authCode);
     }
 
-    @ApiOperation(value = "用户注册")
+    @ApiOperation("用户注册")
     @PostMapping("/register")
     public MallResult register(@RequestBody @Valid UmsMemberRegisterDTO dto) {
         umsMemberService.register(dto);
