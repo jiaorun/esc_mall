@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.esc.mall.dao.IPmsBrandDao">
+    <!-- 分页查询商品品牌列表 -->
+    <select id="selectListByKeyword" parameterType="com.esc.mall.dto.pms.brand.PmsBrandQueryDTO"
+            resultMap="com.esc.mall.mapper.PmsBrandMapper.BaseResultMap">
+        SELECT
+        *
+        FROM pms_brand
+        <where>
+            <if test="name != null and name != ''">
+                `name` LIKE CONCAT(CONCAT('%', #{name}, '%'))
+            </if>
+            <if test="factoryStatus != null">
+                factory_status = #{factory_status, jdbcType=INTEGER}
+            </if>
+        </where>
+        ORDER BY product_count DESC
+    </select>
+</mapper>

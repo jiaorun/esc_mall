@@ -1,4 +1,4 @@
-package com.esc.mall.dto.product;
+package com.esc.mall.dto.pms.product;
 
 import com.esc.mall.api.page.PageReqBasic;
 import io.swagger.annotations.ApiModel;

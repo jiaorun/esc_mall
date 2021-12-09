@@ -58,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected  void configure(HttpSecurity httpSecurity) throws Exception{
+    protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.csrf() //由于使用的是JWT，这里不需要csrf
                 .disable()
                 .sessionManagement() //基于token，所以这里不需要session
@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs/**"
                 )
                 .permitAll()
-                //.antMatchers("/v1/admin/login", "/v1/admin/register") //对登录注册要允许匿名访问
+                //.antMatchers("/v1/ums/admin/login", "/v1/ums/admin/register") //对登录注册要允许匿名访问
                 .antMatchers("/v1/**") //测试时放开所有接口
                 .permitAll()
                 .antMatchers(HttpMethod.OPTIONS) //跨域请求会先进行一次options请求
