@@ -23,8 +23,10 @@ import java.util.List;
  **/
 @Configuration
 @EnableSwagger2
-@ConditionalOnProperty(name = "swagger.enable", havingValue = "true")
 public class Swagger2Config {
+
+    @Value("${swagger.enable}")
+    private Boolean enable;
 
     /**
      * swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等
@@ -33,6 +35,8 @@ public class Swagger2Config {
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                //控制是否启用swagger
+                .enable(enable)
                 .select()
                 //扫描路径
                 .apis(RequestHandlerSelectors.basePackage("com.esc.mall.controller"))
