@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2620e5-87b4-4915-873e-e694fba7364e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/log/mallLog/error-2021-12-09_0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/mallLog/info-2021-12-09_0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/mallLog/warn-2021-11-11_0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/error-2021-11-09_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/info-2021-11-09_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/warn-2021-11-05_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/warn-2021-11-09_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/warn.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/warn.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/Swagger2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/Swagger2Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_common/target/classes/com/esc/mall/config/Swagger2Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/target/classes/com/esc/mall/config/Swagger2Config.class" afterDir="false" />
-    </list>
+    <list default="true" id="9e2620e5-87b4-4915-873e-e694fba7364e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +120,7 @@
       <workItem from="1639047667415" duration="4129000" />
       <workItem from="1639098780639" duration="7166000" />
       <workItem from="1639127177517" duration="1364000" />
-      <workItem from="1639128578268" duration="641000" />
+      <workItem from="1639128578268" duration="1294000" />
     </task>
     <servers />
   </component>
