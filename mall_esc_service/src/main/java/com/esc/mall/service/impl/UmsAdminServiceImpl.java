@@ -1,5 +1,6 @@
 package com.esc.mall.service.impl;
 
+import com.esc.mall.BeanCopierUtils;
 import com.esc.mall.JWTTokenUtils;
 import com.esc.mall.dao.IUmsAdminRoleRelationDao;
 import com.esc.mall.dto.ums.admin.UmsAdminRegisterDTO;
@@ -13,7 +14,6 @@ import com.esc.mall.service.IUmsAdminService;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,12 +37,6 @@ import java.util.List;
 public class UmsAdminServiceImpl implements IUmsAdminService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);
-
-    @Value("${password_salt}")
-    private String PASSWORD_SALT;
-
-    @Value("${password_encode_num}")
-    private int PASSWORD_ENCODE_NUM;
 
     private final UmsAdminMapper umsAdminMapper;
 
@@ -75,7 +69,7 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
         UmsAdminExample example = new UmsAdminExample();
         example.createCriteria().andUsernameEqualTo(username);
         List<UmsAdmin> adminList = umsAdminMapper.selectByExample(example);
-        if(adminList != null && !adminList.isEmpty()) {
+        if (adminList != null && !adminList.isEmpty()) {
             return adminList.get(0);
         }
         return null;
@@ -88,19 +82,20 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
 
     @Override
     public int register(UmsAdminRegisterDTO dto) {
-        UmsAdmin umsAdmin = new UmsAdmin();
-        BeanUtils.copyProperties(dto, umsAdmin);
-        umsAdmin.setCreateTime(new Date());
-        umsAdmin.setStatus(1);
-        //查询是否存在相同用户名
+        // 查询是否存在相同用户名
         UmsAdminExample example = new UmsAdminExample();
-        example.createCriteria().andUsernameEqualTo(umsAdmin.getUsername());
+        example.createCriteria().andUsernameEqualTo(dto.getUsername());
         List<UmsAdmin> adminList = umsAdminMapper.selectByExample(example);
-        if(adminList != null && adminList.size() > 0) {
+        if (adminList != null && adminList.size() > 0) {
             Asserts.fail("存在相同用户名！");
         }
+        UmsAdmin umsAdmin = new UmsAdmin();
+        // 使用BeanCopier进行拷贝
+        BeanCopierUtils.copyProperties(dto, umsAdmin);
+        umsAdmin.setCreateTime(new Date());
+        umsAdmin.setStatus(1);
         //将密码进行加密
-        String encodePassword = new SimpleHash("MD5", umsAdmin.getPassword(), PASSWORD_SALT, PASSWORD_ENCODE_NUM).toString();
+        String encodePassword = myPasswordEncode.encode(dto.getPassword());
         umsAdmin.setPassword(encodePassword);
         return umsAdminMapper.insertSelective(umsAdmin);
     }
@@ -111,12 +106,13 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
         try {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
             if(!myPasswordEncode.matches(password, userDetails.getPassword())) {
-                Asserts.fail("密码不正确");
+                LOGGER.info("password failed:{}", password);
+                Asserts.fail("密码不正确！");
             }
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
             token = jwtTokenUtils.generateToken(userDetails);
-        }catch (AuthenticationException e) {
+        } catch (AuthenticationException e) {
             LOGGER.warn("登录异常:{}", e.getMessage());
         }
         return token;

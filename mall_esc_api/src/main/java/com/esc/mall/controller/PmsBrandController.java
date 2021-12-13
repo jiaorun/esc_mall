@@ -15,8 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -25,8 +27,8 @@ import java.util.List;
  * @date 2021/12/8 14:26
  **/
 @Api(tags = {"商品品牌 控制层"})
+@RequestMapping("/v1/pms/brands")
 @RestController
-@RequestMapping("/v1/pms/brand")
 public class PmsBrandController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
@@ -40,7 +42,7 @@ public class PmsBrandController {
 
     @ApiOperation("获取所有商品品牌")
     @GetMapping("/allPmsBrand")
-    //TODO @PreAuthorize("hasAuthority('pms:brand:read')")
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     public MallResult<List<PmsBrand>> getAllPmsBrand() {
         return MallResult.success(pmsBrandService.getAllBrand());
     }
@@ -55,7 +57,7 @@ public class PmsBrandController {
 
     @ApiOperation("添加商品品牌")
     @PostMapping("/create")
-    public MallResult createPmsBrand(@RequestBody PmsBrandAddDTO dto) {
+    public MallResult createPmsBrand(@RequestBody @Validated PmsBrandAddDTO dto) {
         int count = pmsBrandService.createPmsBrand(dto);
         if (count != 1) {
             LOGGER.info("createPmsBrand failed:{}", dto);
@@ -66,7 +68,7 @@ public class PmsBrandController {
 
     @ApiOperation("编辑商品品牌")
     @PatchMapping("/update/{id}")
-    public MallResult updatePmsBrand(@PathVariable("id") Long id, @RequestBody PmsBrandUpdateDTO dto) {
+    public MallResult updatePmsBrand(@PathVariable("id") Long id, @RequestBody @Valid PmsBrandUpdateDTO dto) {
         int count = pmsBrandService.updatePmsBrand(id, dto);
         if (count != 1) {
             LOGGER.info("updatePmsBrand failed:{}", dto);

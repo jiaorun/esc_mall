@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 通用分页请求基础类
+ * 通用分页请求 基础类
  * @author jiaorun
  * @date 2021/08/16 15:55
  **/

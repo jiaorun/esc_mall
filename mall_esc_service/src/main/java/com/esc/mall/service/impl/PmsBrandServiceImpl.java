@@ -1,5 +1,6 @@
 package com.esc.mall.service.impl;
 
+import com.esc.mall.BeanCopierUtils;
 import com.esc.mall.dao.IPmsBrandDao;
 import com.esc.mall.dto.pms.brand.PmsBrandAddDTO;
 import com.esc.mall.dto.pms.brand.PmsBrandQueryDTO;
@@ -51,13 +52,13 @@ public class PmsBrandServiceImpl implements IPmsBrandService {
     @Override
     public int createPmsBrand(PmsBrandAddDTO dto) {
         PmsBrand pmsBrand = new PmsBrand();
-        BeanUtils.copyProperties(dto, pmsBrand);
+        BeanCopierUtils.copyProperties(dto, pmsBrand);
         // 校验是否存在相同品牌名称
         PmsBrandExample example = new PmsBrandExample();
         example.createCriteria().andNameEqualTo(dto.getName());
         List<PmsBrand> pmsBrandList = pmsBrandMapper.selectByExample(example);
         if (!CollectionUtils.isEmpty(pmsBrandList)) {
-            Asserts.fail("存在相同品牌名称!");
+            Asserts.fail("存在相同品牌名称！");
         }
         return pmsBrandMapper.insertSelective(pmsBrand);
     }
@@ -70,7 +71,7 @@ public class PmsBrandServiceImpl implements IPmsBrandService {
             Asserts.fail("该商品品牌不存在，编辑失败！");
         }
         PmsBrand param = new PmsBrand();
-        BeanUtils.copyProperties(dto, param);
+        BeanCopierUtils.copyProperties(dto, param);
         param.setId(id);
         return pmsBrandMapper.updateByPrimaryKeySelective(param);
     }

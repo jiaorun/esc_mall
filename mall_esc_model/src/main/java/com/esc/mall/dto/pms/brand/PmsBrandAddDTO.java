@@ -43,11 +43,11 @@ public class PmsBrandAddDTO implements Serializable {
     @ApiModelProperty(value = "产品评论熟练", example = "10")
     private Integer productCommentCount;
 
-    @ApiModelProperty(value = "品牌Logo", example = "https://gimg2.baidu.com/image_search/744ebf81a4c7044c402d92a6059242da682.jpg")
+    @ApiModelProperty(value = "品牌Logo", example = "https://img2.baidu.com/it/u=3820283315,555218228&fm=26&fmt=auto")
     @Size(max = 255, message = "品牌Logo最大长度为255")
     private String logo;
 
-    @ApiModelProperty(value = "专区大图", example = "https://gimg2.baidu.com/image_search/q=a80&n=0&g=0n&fmt=jpeg")
+    @ApiModelProperty(value = "专区大图", example = "https://img2.baidu.com/it/u=2790956125,638503733&fm=26&fmt=auto")
     @Size(max = 255, message = "专区大图最大长度为255")
     private String bigPic;
 
