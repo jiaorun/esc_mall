@@ -7,16 +7,16 @@ package com.esc.mall.exception;
  **/
 public enum ResultInfoEnum implements BaseErrorInfoInterface {
 
-    SUCCESS(200, "操作成功"),
-    VALIDATE_FAILED(400, "参数校验异常"),
-    UNAUTHORIZED(401, "暂未登录或token已过期"),
-    FORBIDDEN(403, "没有相关权限"),
-    NOT_FOUND(404, "未找到该资源"),
-    NULL_POINT_FOUND(407, "空指针异常!"),
-    USERNAME_PASSWORD_ERROR(408, "用户名或密码错误"),
-    BUSINESS_ERROR(410, "业务异常"),
-    FAILED(500, "服务器内部错误!"),
-    SERVER_BUSY(503,"服务器正忙，请稍后再试!");
+    SUCCESS(200, "操作成功！"),
+    VALIDATE_FAILED(400, "参数校验异常！"),
+    UNAUTHORIZED(401, "暂未登录或token已过期！"),
+    FORBIDDEN(403, "没有相关权限！"),
+    NOT_FOUND(404, "未找到该资源！"),
+    NULL_POINT_FOUND(407, "空指针异常！"),
+    USERNAME_PASSWORD_ERROR(408, "用户名或密码错误！"),
+    BUSINESS_ERROR(410, "业务异常！"),
+    FAILED(500, "服务器内部错误！"),
+    SERVER_BUSY(503,"服务器正忙，请稍后再试！");
 
     /**
      * 状态码

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.esc.mall.dao.IPmsProductDao">
-    <!-- 分页查询商品列表 -->
+    <!-- 查询商品列表 -->
     <select id="selectListByKeyword" parameterType="com.esc.mall.dto.pms.product.PmsProductQueryDTO" resultMap="com.esc.mall.mapper.PmsProductMapper.BaseResultMap">
         SELECT
         *

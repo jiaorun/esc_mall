@@ -82,7 +82,7 @@ public class Swagger2Config {
      */
     private List<SecurityContext> securityContexts() {
         List<SecurityContext> result = new ArrayList<>();
-        result.add(getContextByPath("/v1/pms/brand/.*"));
+        result.add(getContextByPath("/v1/pms/brands/.*"));
         return result;
     }
 

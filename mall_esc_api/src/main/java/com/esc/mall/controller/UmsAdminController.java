@@ -12,11 +12,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,9 +46,9 @@ public class UmsAdminController {
 
     @ApiOperation("用户注册")
     @PostMapping("/register")
-    public MallResult register(@RequestBody UmsAdminRegisterDTO dto) {
+    public MallResult register(@RequestBody @Validated UmsAdminRegisterDTO dto) {
         int count = umsAdminService.register(dto);
-        if(count != 1) {
+        if (count != 1) {
             LOGGER.info("createAdmin failed:{}", dto);
             Asserts.fail("用户注册失败！");
         }
@@ -55,9 +57,9 @@ public class UmsAdminController {
 
     @ApiOperation("登录")
     @PostMapping("/login")
-    public MallResult login(@RequestBody UmsAdminLoginDTO dto) {
+    public MallResult login(@RequestBody @Valid UmsAdminLoginDTO dto) {
         String token = umsAdminService.login(dto.getUsername(), dto.getPassword());
-        if(token == null) {
+        if (token == null) {
             return MallResult.failed(ResultInfoEnum.USERNAME_PASSWORD_ERROR);
         }
         Map<String, String> tokenMap = new HashMap<>();

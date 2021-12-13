@@ -33,7 +33,7 @@ public class PmsProductController {
 
     @ApiOperation("商品列表")
     @GetMapping("/list")
-    public MallResult<PmsProduct> list(PmsProductQueryDTO dto) {
+    public MallResult<PmsProduct> list(@ModelAttribute PmsProductQueryDTO dto) {
         List<PmsProduct> pmsProductList = pmsProductService.queryPmsProductList(dto);
         return new MallResult(ResultInfoEnum.SUCCESS, CommonPage.restPage(pmsProductList));
     }

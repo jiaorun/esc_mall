@@ -5,26 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2620e5-87b4-4915-873e-e694fba7364e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/log/mallLog/error-2021-12-09_0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/mallLog/info-2021-12-09_0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/mallLog/warn-2021-11-11_0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mall_esc_utils/src/main/java/com/esc/mall/BeanCopierUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/error-2021-11-09_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/info-2021-11-09_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/warn-2021-11-05_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/mallLog/warn-2021-11-09_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/warn.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/warn.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/PmsBrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/PmsBrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/PmsProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/PmsProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/UmsAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/UmsAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/UmsMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/UmsMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/elasticsearch/EsPmsProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/elasticsearch/EsPmsProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/application-dev.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/PmsBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/PmsBrandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/PmsProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/PmsProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/UmsAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/UmsAdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/UmsMemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/UmsMemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/elasticsearch/EsPmsProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/controller/elasticsearch/EsPmsProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/com/esc/mall/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/api/common/BaseMallDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/api/common/BaseMallDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/api/page/PageReqBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/api/page/PageReqBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/Swagger2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/Swagger2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/exception/Asserts.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/exception/Asserts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/exception/ResultInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/exception/ResultInfoEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall_esc_common/target/classes/com/esc/mall/config/Swagger2Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/target/classes/com/esc/mall/config/Swagger2Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_common/target/classes/com/esc/mall/exception/ResultInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_common/target/classes/com/esc/mall/exception/ResultInfoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_mapper/src/main/resources/mapper/dto/PmsBrandDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_mapper/src/main/resources/mapper/dto/PmsBrandDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_mapper/src/main/resources/mapper/dto/PmsProductDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_mapper/src/main/resources/mapper/dto/PmsProductDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_mapper/target/classes/mapper/dto/PmsBrandDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_mapper/target/classes/mapper/dto/PmsBrandDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_mapper/target/classes/mapper/dto/PmsProductDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_mapper/target/classes/mapper/dto/PmsProductDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_model/src/main/java/com/esc/mall/dto/pms/brand/PmsBrandAddDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_model/src/main/java/com/esc/mall/dto/pms/brand/PmsBrandAddDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_model/src/main/java/com/esc/mall/dto/ums/member/UmsMemberRegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_model/src/main/java/com/esc/mall/dto/ums/member/UmsMemberRegisterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_model/target/classes/com/esc/mall/dto/pms/brand/PmsBrandAddDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_model/target/classes/com/esc/mall/dto/pms/brand/PmsBrandAddDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_model/target/classes/com/esc/mall/dto/ums/member/UmsMemberRegisterDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_model/target/classes/com/esc/mall/dto/ums/member/UmsMemberRegisterDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/IUmsMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/IUmsMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/elasticsearch/impl/EsPmsProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/elasticsearch/impl/EsPmsProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/PmsBrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/PmsBrandServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/UmsAdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/UmsAdminServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/UmsMemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/UmsMemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/IUmsMemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/IUmsMemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/elasticsearch/impl/EsPmsProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/elasticsearch/impl/EsPmsProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/impl/PmsBrandServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/impl/PmsBrandServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/impl/UmsAdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/impl/UmsAdminServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/impl/UmsMemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_service/target/classes/com/esc/mall/service/impl/UmsMemberServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +93,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mall_esc_api/src/main/resources/application.properties" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -141,7 +169,8 @@
       <workItem from="1639047667415" duration="4129000" />
       <workItem from="1639098780639" duration="7166000" />
       <workItem from="1639127177517" duration="1364000" />
-      <workItem from="1639128578268" duration="641000" />
+      <workItem from="1639128578268" duration="1715000" />
+      <workItem from="1639358788135" duration="18734000" />
     </task>
     <servers />
   </component>
@@ -159,5 +188,31 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/elasticsearch/impl/EsPmsProductServiceImpl.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/UmsAdminServiceImpl.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/security/MyPasswordEncode.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/security/MyPasswordEncode.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

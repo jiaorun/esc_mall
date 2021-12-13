@@ -19,11 +19,11 @@ public interface IUmsMemberService {
     String generateAuthCode(String telephone);
 
     /**
-     * 用户注册
+     * 会员注册
      * @author jiaorun
      * @date 2021/09/15 11:08
      * @param dto
      * @return void
      */
-    void register(UmsMemberRegisterDTO dto);
+    int register(UmsMemberRegisterDTO dto);
 }

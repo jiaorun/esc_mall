@@ -44,19 +44,19 @@ public class EsPmsProductServiceImpl implements IEsPmsProductService {
         List<EsProduct> esProductList = pmsProductDao.selectEsProductList(null);
         Iterable<EsProduct> esProductIterable = esProductRepository.saveAll(esProductList);
         Iterator<EsProduct> iterator = esProductIterable.iterator();
-        int result = 0;
+        int count = 0;
         while (iterator.hasNext()) {
-            result++;
+            count++;
             iterator.next();
         }
-        return result;
+        return count;
     }
 
     @Override
     public EsProduct create(Long id) {
         EsProduct esProduct = null;
         List<EsProduct> esProductList = pmsProductDao.selectEsProductList(id);
-        if(esProductList != null && !esProductList.isEmpty()) {
+        if (esProductList != null && !esProductList.isEmpty()) {
             esProduct = esProductRepository.save(esProductList.get(0));
         }
         return esProduct;
@@ -69,7 +69,7 @@ public class EsPmsProductServiceImpl implements IEsPmsProductService {
 
     @Override
     public void deleteBatch(List<Long> ids) {
-        if(!CollectionUtils.isEmpty(ids)) {
+        if (!CollectionUtils.isEmpty(ids)) {
             List<EsProduct> esProductList = new ArrayList<>();
             for (Long id : ids) {
                 EsProduct esProduct = new EsProduct();

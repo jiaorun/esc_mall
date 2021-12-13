@@ -2,11 +2,14 @@ package com.esc.mall.controller.elasticsearch;
 
 import com.esc.mall.api.page.CommonPage;
 import com.esc.mall.api.result.MallResult;
+import com.esc.mall.exception.Asserts;
 import com.esc.mall.exception.ResultInfoEnum;
 import com.esc.mall.product.document.EsProduct;
 import com.esc.mall.service.elasticsearch.IEsPmsProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,8 @@ import java.util.List;
 @RequestMapping("v1/es/products")
 @RestController
 public class EsPmsProductController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(EsPmsProductController.class);
 
     private final IEsPmsProductService esPmsProductService;
 
@@ -41,11 +46,11 @@ public class EsPmsProductController {
     @PostMapping("/create/{id}")
     public MallResult<EsProduct> create(@PathVariable Long id) {
         EsProduct esProduct = esPmsProductService.create(id);
-        if (esProduct != null) {
-            return MallResult.success(esProduct);
-        } else {
-           return MallResult.failed(ResultInfoEnum.BUSINESS_ERROR);
+        if (esProduct == null) {
+            LOGGER.info("es createProduct failed:{}", id);
+            Asserts.fail("ES系统创建商品失败！");
         }
+        return MallResult.success(esProduct);
     }
 
     @ApiOperation(value = "根据ID删除商品")

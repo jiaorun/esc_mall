@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/mall_esc_api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall_esc_api/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall_esc_common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall_esc_elasticsearch/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall_esc_mapper/src/main/java" charset="UTF-8" />
