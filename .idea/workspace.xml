@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2620e5-87b4-4915-873e-e694fba7364e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mall_esc_api/src/main/java/com/esc/mall/controller/OssController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_common/src/main/java/com/esc/mall/config/OssConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_model/src/main/java/com/esc/mall/dto/oss/OssCallbackParamDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_model/src/main/java/com/esc/mall/dto/oss/OssCallbackResultDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_model/src/main/java/com/esc/mall/dto/oss/OssPolicyResultDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/IOssService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall_esc_service/src/main/java/com/esc/mall/service/impl/OssServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall_esc_api/target/classes/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mall_esc_api/target/classes/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9e2620e5-87b4-4915-873e-e694fba7364e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +128,7 @@
       <workItem from="1639128578268" duration="1715000" />
       <workItem from="1639358788135" duration="19827000" />
       <workItem from="1639444181692" duration="17038000" />
-      <workItem from="1639531316434" duration="20540000" />
+      <workItem from="1639531316434" duration="20914000" />
     </task>
     <servers />
   </component>
