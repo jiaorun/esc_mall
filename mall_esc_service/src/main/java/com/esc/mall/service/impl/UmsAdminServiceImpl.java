@@ -29,6 +29,7 @@ import java.util.List;
 
 /**
  * 后台用户登录注册 业务实现层
+ *
  * @author jiaorun
  * @date 2021/11/4 10:55
  **/
@@ -105,7 +106,7 @@ public class UmsAdminServiceImpl implements IUmsAdminService {
         String token = null;
         try {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-            if(!myPasswordEncode.matches(password, userDetails.getPassword())) {
+            if (!myPasswordEncode.matches(password, userDetails.getPassword())) {
                 LOGGER.info("password failed:{}", password);
                 Asserts.fail("密码不正确！");
             }

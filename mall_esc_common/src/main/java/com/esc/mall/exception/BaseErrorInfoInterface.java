@@ -2,6 +2,7 @@ package com.esc.mall.exception;
 
 /**
  * 基础接口类(自定义的错误描述枚举类需实现该接口)
+ *
  * @author jiaorun
  * @date 2021/08/16 14:52
  **/

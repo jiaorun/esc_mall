@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 /**
  * SpringSecurity需要的用户详情
+ *
  * @author jiaorun
  * @date 2021/11/4 14:44
  **/
@@ -30,9 +31,10 @@ public class AdminUserDetails implements UserDetails {
 
     /**
      * 返回当前用户的权限
+     *
+     * @return java.util.Collection<? extends org.springframework.security.core.GrantedAuthority>
      * @author jiaorun
      * @data 2021/11/4 14:50
-     * @return java.util.Collection<? extends org.springframework.security.core.GrantedAuthority>
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.esc.mall.dao.IPmsProductDao">
     <!-- 查询商品列表 -->
-    <select id="selectListByKeyword" parameterType="com.esc.mall.dto.pms.product.PmsProductQueryDTO" resultMap="com.esc.mall.mapper.PmsProductMapper.BaseResultMap">
+    <select id="selectListByKeyword" parameterType="com.esc.mall.dto.pms.product.PmsProductQueryDTO"
+            resultMap="com.esc.mall.mapper.PmsProductMapper.BaseResultMap">
         SELECT
         *
         FROM pms_product
@@ -31,7 +32,8 @@
 
     <resultMap id="esProductListMap" type="com.esc.mall.product.document.EsProduct" autoMapping="true">
         <id column="id" property="id" jdbcType="BIGINT"></id>
-        <collection property="attrValueList" columnPrefix="attr_" ofType="com.esc.mall.product.document.EsProductAttributeValue">
+        <collection property="attrValueList" columnPrefix="attr_"
+                    ofType="com.esc.mall.product.document.EsProductAttributeValue">
             <id column="id" property="id" jdbcType="BIGINT"></id>
             <result column="product_attribute_id" property="productAttributeId" jdbcType="BIGINT"></result>
             <result column="value" property="value" jdbcType="VARCHAR"></result>
@@ -42,28 +44,28 @@
     <!-- 搜索系统中，查询所有商品 -->
     <select id="selectEsProductList" resultMap="esProductListMap">
         SELECT
-            p.id id,
-            p.product_sn productSn,
-            p.brand_id brandId,
-            p.brand_name brandName,
-            p.product_category_id productCategoryId,
-            p.product_category_name productCategoryName,
-            p.pic pic,
-            p.name name,
-            p.sub_title subTitle,
-            p.price price,
-            p.sale sale,
-            p.new_status newStatus,
-            p.recommand_status recommandStatus,
-            p.stock stock,
-            p.promotion_type promotionType,
-            p.keywords keywords,
-            p.sort sort,
-            pav.id attr_id,
-            pav.value attr_value,
-            pav.product_attribute_id attr_product_attribute_id,
-            pa.type attr_type,
-            pa.name attr_name
+        p.id id,
+        p.product_sn productSn,
+        p.brand_id brandId,
+        p.brand_name brandName,
+        p.product_category_id productCategoryId,
+        p.product_category_name productCategoryName,
+        p.pic pic,
+        p.name name,
+        p.sub_title subTitle,
+        p.price price,
+        p.sale sale,
+        p.new_status newStatus,
+        p.recommand_status recommandStatus,
+        p.stock stock,
+        p.promotion_type promotionType,
+        p.keywords keywords,
+        p.sort sort,
+        pav.id attr_id,
+        pav.value attr_value,
+        pav.product_attribute_id attr_product_attribute_id,
+        pa.type attr_type,
+        pa.name attr_name
         FROM pms_product p
         LEFT JOIN pms_product_attribute_value pav ON p.id = pav.product_id
         LEFT JOIN pms_product_attribute pa ON pav.product_attribute_id = pa.id

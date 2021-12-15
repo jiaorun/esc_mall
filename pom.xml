@@ -16,6 +16,8 @@
         <module>mall_esc_model</module>
         <module>mall_esc_mapper</module>
         <module>mall_esc_elasticsearch</module>
+        <module>mall_esc_mongo</module>
+        <module>mall_esc_queue</module>
     </modules>
 
     <properties>
@@ -136,6 +138,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+        <!-- mongodb相关依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <!-- 消息队列相关依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
     </dependencies>
 

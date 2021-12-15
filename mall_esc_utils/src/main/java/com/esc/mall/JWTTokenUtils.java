@@ -15,6 +15,7 @@ import java.util.Map;
 
 /**
  * JWT 工具类
+ *
  * @author jiaorun
  * @date 2021/11/3 15:55
  **/
@@ -35,10 +36,11 @@ public class JWTTokenUtils {
 
     /**
      * 生成JWT的token
-     * @author jiaorun
-     * @data 2021/11/3 16:43
+     *
      * @param claims
      * @return java.lang.String
+     * @author jiaorun
+     * @data 2021/11/3 16:43
      */
     private String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
@@ -50,10 +52,11 @@ public class JWTTokenUtils {
 
     /**
      * 从token中获取JWT的负载
-     * @author jiaorun
-     * @data 2021/11/3 16:47
+     *
      * @param token
      * @return io.jsonwebtoken.Claims
+     * @author jiaorun
+     * @data 2021/11/3 16:47
      */
     private Claims getClaimsFromToken(String token) {
         Claims claims = null;
@@ -70,10 +73,11 @@ public class JWTTokenUtils {
 
     /**
      * 从token中获取登录用户名
-     * @author jiaorun
-     * @data 2021/11/3 16:49
+     *
      * @param token
      * @return java.lang.String
+     * @author jiaorun
+     * @data 2021/11/3 16:49
      */
     public String getUsernameFromToken(String token) {
         String username;
@@ -81,19 +85,20 @@ public class JWTTokenUtils {
             Claims claims = getClaimsFromToken(token);
             username = claims.getSubject();
         } catch (Exception e) {
-          username = null;
+            username = null;
         }
         return username;
     }
 
     /**
      * 验证token是否有效
+     *
+     * @param token
+     * @param userDetails
+     * @return boolean
      * @author jiaorun
      * @data 2021/11/3 17:00
-     * @param token 
-     * @param userDetails 
-     * @return boolean
-     */       
+     */
     public boolean validateToken(String token, UserDetails userDetails) {
         String username = getUsernameFromToken(token);
         return username.equals(userDetails.getUsername()) && isTokenExpired(token);
@@ -101,10 +106,11 @@ public class JWTTokenUtils {
 
     /**
      * 判断token是否已失效
-     * @author jiaorun
-     * @data 2021/11/3 16:56
+     *
      * @param token
      * @return boolean
+     * @author jiaorun
+     * @data 2021/11/3 16:56
      */
     private boolean isTokenExpired(String token) {
         Date expiredDate = getExpiredDateFromToken(token);
@@ -113,10 +119,11 @@ public class JWTTokenUtils {
 
     /**
      * 根据用户信息生成token
-     * @author jiaorun
-     * @data 2021/11/3 17:04
+     *
      * @param userDetails
      * @return java.lang.String
+     * @author jiaorun
+     * @data 2021/11/3 17:04
      */
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>(2);
@@ -127,10 +134,11 @@ public class JWTTokenUtils {
 
     /**
      * 从token中获取过期时间
-     * @author jiaorun
-     * @data 2021/11/3 16:57
+     *
      * @param token
      * @return java.util.Date
+     * @author jiaorun
+     * @data 2021/11/3 16:57
      */
     private Date getExpiredDateFromToken(String token) {
         Claims claims = getClaimsFromToken(token);
@@ -139,9 +147,10 @@ public class JWTTokenUtils {
 
     /**
      * 生成token的过期时间
+     *
+     * @return java.util.Date
      * @author jiaorun
      * @data 2021/11/3 16:13
-     * @return java.util.Date
      */
     private Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
@@ -149,10 +158,11 @@ public class JWTTokenUtils {
 
     /**
      * 判断token是否可以刷新
-     * @author jiaorun
-     * @data 2021/11/3 17:06
+     *
      * @param token
      * @return boolean
+     * @author jiaorun
+     * @data 2021/11/3 17:06
      */
     public boolean canRefresh(String token) {
         return !isTokenExpired(token);
@@ -160,10 +170,11 @@ public class JWTTokenUtils {
 
     /**
      * 刷新token
-     * @author jiaorun
-     * @data 2021/11/3 17:51
+     *
      * @param token
      * @return java.lang.String
+     * @author jiaorun
+     * @data 2021/11/3 17:51
      */
     public String refreshToken(String token) {
         Claims claims = getClaimsFromToken(token);

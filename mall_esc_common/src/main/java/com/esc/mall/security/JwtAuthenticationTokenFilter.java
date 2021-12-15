@@ -21,6 +21,7 @@ import java.io.IOException;
 
 /**
  * JWT登录授权过滤器
+ *
  * @author jiaorun
  * @date 2021/11/4 15:36
  **/
@@ -44,13 +45,13 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String authHeader = httpServletRequest.getHeader(this.tokenHeader);
-        if(authHeader != null && authHeader.startsWith(this.tokenHead)) {
+        if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
             String authToken = authHeader.substring(this.tokenHead.length()); //截取出完整的token
             String username = jwtTokenUtils.getUsernameFromToken(authToken);
             LOGGER.info("checking username:{}", username);
-            if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-                if(jwtTokenUtils.validateToken(authToken, userDetails)) {
+                if (jwtTokenUtils.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
                     LOGGER.info("authenticated user:{}", username);

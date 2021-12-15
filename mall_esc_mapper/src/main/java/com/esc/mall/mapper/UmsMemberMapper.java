@@ -2,6 +2,7 @@ package com.esc.mall.mapper;
 
 import com.esc.mall.model.UmsMember;
 import com.esc.mall.model.UmsMemberExample;
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;

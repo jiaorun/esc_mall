@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 通用分页数据封装类
+ *
  * @author jiaorun
  * @date 2021/08/16 15:36
  **/
@@ -44,10 +45,11 @@ public class CommonPage<T> implements Serializable {
 
     /**
      * 将PageHelper分页后的list转为分页信息
-     * @author jiaorun
-     * @date 2021/08/16 15:39
+     *
      * @param list
      * @return com.esc.mall.api.page.CommonPage<T>
+     * @author jiaorun
+     * @date 2021/08/16 15:39
      */
     public static <T> CommonPage<T> restPage(List<T> list) {
         CommonPage<T> result = new CommonPage<T>();
@@ -62,10 +64,11 @@ public class CommonPage<T> implements Serializable {
 
     /**
      * 将SpringData分页后的list转为分页信息
-     * @author jiaorun
-     * @data 2021/11/5 16:22
+     *
      * @param pageInfo
      * @return com.esc.mall.api.page.CommonPage<T>
+     * @author jiaorun
+     * @data 2021/11/5 16:22
      */
     public static <T> CommonPage<T> restPage(Page<T> pageInfo) {
         CommonPage<T> result = new CommonPage<T>();

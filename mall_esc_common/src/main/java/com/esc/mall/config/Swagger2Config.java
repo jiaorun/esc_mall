@@ -1,7 +1,6 @@
 package com.esc.mall.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -18,6 +17,7 @@ import java.util.List;
 
 /**
  * Swagger2 配置类
+ *
  * @author jiaorun
  * @date 2021/08/16 11:32
  **/
@@ -63,9 +63,10 @@ public class Swagger2Config {
 
     /**
      * 设置请求头
+     *
+     * @return java.util.List<springfox.documentation.service.ApiKey>
      * @author jiaorun
      * @data 2021/12/8 12:19
-     * @return java.util.List<springfox.documentation.service.ApiKey>
      */
     private List<ApiKey> securitySchemes() {
         List<ApiKey> result = new ArrayList<>();
@@ -76,9 +77,10 @@ public class Swagger2Config {
 
     /**
      * 设置需要登录认证的路径
+     *
+     * @return java.util.List<org.springframework.security.core.context.SecurityContext>
      * @author jiaorun
      * @data 2021/12/8 15:55
-     * @return java.util.List<org.springframework.security.core.context.SecurityContext>
      */
     private List<SecurityContext> securityContexts() {
         List<SecurityContext> result = new ArrayList<>();

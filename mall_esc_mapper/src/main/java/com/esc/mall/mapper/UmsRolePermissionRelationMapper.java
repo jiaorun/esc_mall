@@ -2,7 +2,9 @@ package com.esc.mall.mapper;
 
 import com.esc.mall.model.UmsRolePermissionRelation;
 import com.esc.mall.model.UmsRolePermissionRelationExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 

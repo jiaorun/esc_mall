@@ -2,6 +2,7 @@ package com.esc.mall.exception;
 
 /**
  * 通用API返回对象 枚举类
+ *
  * @author jiaorun
  * @date 2021/08/16 14:41
  **/
@@ -16,7 +17,7 @@ public enum ResultInfoEnum implements BaseErrorInfoInterface {
     USERNAME_PASSWORD_ERROR(408, "用户名或密码错误！"),
     BUSINESS_ERROR(410, "业务异常！"),
     FAILED(500, "服务器内部错误！"),
-    SERVER_BUSY(503,"服务器正忙，请稍后再试！");
+    SERVER_BUSY(503, "服务器正忙，请稍后再试！");
 
     /**
      * 状态码

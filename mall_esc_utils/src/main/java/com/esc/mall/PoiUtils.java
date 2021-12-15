@@ -42,16 +42,16 @@ public class PoiUtils {
         //校验文件后缀
         InputStream is = new FileInputStream(file);
         String suffix = fileName.substring(lastIndexOf + 1);
-            switch (suffix) {
-                case "doc":
-                    handlerByDocFile(is);
-                    break;
-                case "docx":
-                    handlerByDocxFile(is);
-                    break;
-                default:
-                    throw new IllegalArgumentException("不能解析的文档类型，请输入正确的word文档类型的文件！");
-            }
+        switch (suffix) {
+            case "doc":
+                handlerByDocFile(is);
+                break;
+            case "docx":
+                handlerByDocxFile(is);
+                break;
+            default:
+                throw new IllegalArgumentException("不能解析的文档类型，请输入正确的word文档类型的文件！");
+        }
     }
 
     /**
@@ -78,10 +78,11 @@ public class PoiUtils {
 
     /**
      * 组装结果值
+     *
+     * @param range
+     * @return java.util.Map<java.lang.String, java.lang.String>
      * @author jiaorun
      * @date 2021/08/26 15:59
-     * @param range
-     * @return java.util.Map<java.lang.String,java.lang.String>
      */
     private Map<String, String> assembleResult(Range range) {
         Map<String, String> resultMap = new HashMap<>(5);
@@ -160,10 +161,11 @@ public class PoiUtils {
 
     /**
      * 关闭连接
-     * @author jiaorun
-     * @date 2021/08/26 16:00
+     *
      * @param hwpfDocument
      * @return void
+     * @author jiaorun
+     * @date 2021/08/26 16:00
      */
     public void closeDocFile(HWPFDocument hwpfDocument) {
         try {
@@ -200,10 +202,11 @@ public class PoiUtils {
 
     /**
      * 用于处理当前的XWPFParagraph类型的数据
-     * @author jiaorun
-     * @date 2021/09/02 16:37
+     *
      * @param bodyElement
      * @return java.lang.String
+     * @author jiaorun
+     * @date 2021/09/02 16:37
      */
     public String handlerXwpfParagraphType(IBodyElement bodyElement) {
         XWPFParagraph xwpfParagraph = (XWPFParagraph) bodyElement;

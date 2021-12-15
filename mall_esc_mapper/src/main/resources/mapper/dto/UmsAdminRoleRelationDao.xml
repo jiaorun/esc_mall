@@ -3,7 +3,8 @@
 <mapper namespace="com.esc.mall.dao.IUmsAdminRoleRelationDao">
     <!-- 查询用户所有权限 -->
     <!-- resultMap的类型需要引用其他文件的值时，需要指定被引用文件的namespace+resultMap -->
-    <select id="selectPermissionList" parameterType="java.lang.Long" resultMap="com.esc.mall.mapper.UmsPermissionMapper.BaseResultMap">
+    <select id="selectPermissionList" parameterType="java.lang.Long"
+            resultMap="com.esc.mall.mapper.UmsPermissionMapper.BaseResultMap">
         SELECT p.*
         FROM ums_admin_role_relation ar
                  LEFT JOIN ums_role r ON ar.role_id = r.id

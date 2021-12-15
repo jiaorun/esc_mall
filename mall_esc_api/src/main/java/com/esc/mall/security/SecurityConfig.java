@@ -26,6 +26,7 @@ import java.util.List;
 
 /**
  * Security 配置类
+ *
  * @author jiaorun
  * @date 2021/11/4 10:34
  **/
@@ -58,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception{
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf() //由于使用的是JWT，这里不需要csrf
                 .disable()
                 .sessionManagement() //基于token，所以这里不需要session
@@ -76,8 +77,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs/**"
                 )
                 .permitAll()
-                .antMatchers("/v1/ums/admin/login", "/v1/ums/admin/register") //对登录注册要允许匿名访问
-                //.antMatchers("/v1/**") //测试时放开所有接口
+                //.antMatchers("/v1/ums/admin/login", "/v1/ums/admin/register") //对登录注册要允许匿名访问
+                .antMatchers("/v1/**") //测试时放开所有接口
                 .permitAll()
                 .antMatchers(HttpMethod.OPTIONS) //跨域请求会先进行一次options请求
                 .permitAll()
@@ -95,7 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     // 获取用户及对应的角色信息
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService())
                 .passwordEncoder(myPasswordEncode());
     }
@@ -117,7 +118,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
         return username -> {
             UmsAdmin admin = umsAdminService.getAdminByUsername(username);
-            if(admin != null) {
+            if (admin != null) {
                 List<UmsPermission> permissionList = umsAdminService.getPermissionList(admin.getId());
                 return new AdminUserDetails(admin, permissionList);
             }
@@ -132,7 +133,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception{
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 }

@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * 搜索系统 商品管理 控制层
+ *
  * @author jiaorun
  * @date 2021/11/9 15:28
  **/
@@ -70,8 +71,8 @@ public class EsPmsProductController {
     @ApiOperation(value = "搜索")
     @GetMapping("/search")
     public MallResult<CommonPage<EsProduct>> search(@RequestParam(required = false) String keyword,
-                                         @RequestParam(required = false, defaultValue = "0") Integer pageNum,
-                                         @RequestParam(required = false, defaultValue = "5") Integer pageSize) {
+                                                    @RequestParam(required = false, defaultValue = "0") Integer pageNum,
+                                                    @RequestParam(required = false, defaultValue = "5") Integer pageSize) {
         Page<EsProduct> esProductList = esPmsProductService.search(keyword, pageNum, pageSize);
         return MallResult.success(CommonPage.restPage(esProductList));
     }

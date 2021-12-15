@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 自定义密码加密和比较方式
+ *
  * @author jiaorun
  * @date 2021/11/5 15:44
  **/

@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * BeanCopier缓存 工具类
+ *
  * @author jiaorun
  * @date 2021/12/13 12:09
  **/
@@ -16,9 +17,10 @@ public class BeanCopierUtils {
 
     /**
      * 缓存BeanCopier
+     *
+     * @return void
      * @author jiaorun
      * @data 2021/12/13 12:10
-     * @return void
      */
     public static void copyProperties(Object source, Object target) {
         StringBuilder cacheKey = new StringBuilder();
