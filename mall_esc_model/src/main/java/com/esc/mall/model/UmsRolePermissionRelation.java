@@ -1,6 +1,7 @@
 package com.esc.mall.model;
 
 import java.io.Serializable;
+
 import lombok.Data;
 
 @Data

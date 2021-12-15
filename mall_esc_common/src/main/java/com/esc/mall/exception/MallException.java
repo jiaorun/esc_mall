@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 自定义异常类
+ *
  * @author jiaorun
  * @date 2021/08/27 17:01
  **/
@@ -24,7 +25,8 @@ public class MallException extends RuntimeException implements Serializable {
      */
     private String errorMessage;
 
-    public MallException() {}
+    public MallException() {
+    }
 
     public MallException(BaseErrorInfoInterface baseErrorInfoInterface) {
         this.errorCode = baseErrorInfoInterface.getCode();

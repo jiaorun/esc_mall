@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 /**
  * 商品品牌添加 请求参数
+ *
  * @author jiaorun
  * @date 2021/12/8 16:38
  **/

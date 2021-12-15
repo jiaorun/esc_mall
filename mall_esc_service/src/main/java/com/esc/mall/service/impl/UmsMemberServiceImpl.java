@@ -24,6 +24,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 会员登录注册 业务实现层
+ *
  * @author jiaorun
  * @date 2021/09/14 20:17
  **/
@@ -97,11 +98,12 @@ public class UmsMemberServiceImpl implements IUmsMemberService {
 
     /**
      * 校验验证码
+     *
+     * @param telephone 手机号
+     * @param authCode  验证码
+     * @return boolean
      * @author jiaorun
      * @date 2021/09/15 11:16
-     * @param telephone 手机号
-     * @param authCode 验证码
-     * @return boolean
      */
     private boolean verifyAuthCode(String telephone, String authCode) {
         String realAuthCode = (String) redisUtils.get(REDIS_KEY_PREFIX_AUTH_CODE + telephone);

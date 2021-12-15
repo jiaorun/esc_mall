@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 /**
  * 全局异常处理类
+ *
  * @author jiaorun
  * @date 2021/08/27 17:16
  **/
@@ -25,10 +26,11 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理自定义异常
-     * @author jiaorun
-     * @date 2021/08/27 17:27
+     *
      * @param e
      * @return com.esc.mall.api.result.MallResult
+     * @author jiaorun
+     * @date 2021/08/27 17:27
      */
     @ExceptionHandler(value = MallException.class)
     @ResponseBody
@@ -39,24 +41,26 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理空指针异常
-     * @author jiaorun
-     * @date 2021/08/27 17:34
+     *
      * @param e
      * @return com.esc.mall.api.result.MallResult
+     * @author jiaorun
+     * @date 2021/08/27 17:34
      */
     @ExceptionHandler(value = NullPointerException.class)
     @ResponseBody
-    public MallResult exceptionHandler(NullPointerException e){
+    public MallResult exceptionHandler(NullPointerException e) {
         LOGGER.error("空指针异常,异常原因: {}", e);
         return MallResult.failed(ResultInfoEnum.NULL_POINT_FOUND);
     }
 
     /**
      * 参数校验异常
-     * @author jiaorun
-     * @date 2021/09/15 15:26
+     *
      * @param e
      * @return com.esc.mall.api.result.MallResult
+     * @author jiaorun
+     * @date 2021/09/15 15:26
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
@@ -71,10 +75,11 @@ public class GlobalExceptionHandler {
 
     /**
      * SQL异常
-     * @author jiaorun
-     * @date 2021/09/15 15:34
+     *
      * @param e
      * @return com.esc.mall.api.result.MallResult
+     * @author jiaorun
+     * @date 2021/09/15 15:34
      */
     @ExceptionHandler(SQLException.class)
     @ResponseBody
@@ -85,10 +90,11 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理其他异常
-     * @author jiaorun
-     * @date 2021/08/27 17:36
+     *
      * @param e
      * @return com.esc.mall.api.result.MallResult
+     * @author jiaorun
+     * @date 2021/08/27 17:36
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody

@@ -11,6 +11,7 @@ import java.io.Serializable;
 
 /**
  * 后台用户注册 请求参数
+ *
  * @author jiaorun
  * @date 2021/11/4 19:54
  **/

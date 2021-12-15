@@ -2,7 +2,9 @@ package com.esc.mall.mapper;
 
 import com.esc.mall.model.UmsAdmin;
 import com.esc.mall.model.UmsAdminExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Component;

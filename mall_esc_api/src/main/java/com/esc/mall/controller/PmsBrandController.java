@@ -23,6 +23,7 @@ import java.util.List;
 
 /**
  * 商品品牌 控制层
+ *
  * @author jiaorun
  * @date 2021/12/8 14:26
  **/
@@ -88,7 +89,7 @@ public class PmsBrandController {
     @DeleteMapping("/{id}")
     public MallResult delete(@PathVariable("id") Long id) {
         int count = pmsBrandService.delete(id);
-        if(count != 1) {
+        if (count != 1) {
             LOGGER.info("deletePmsBrand failed:{}", id);
             Asserts.fail("删除商品品牌失败!");
         }

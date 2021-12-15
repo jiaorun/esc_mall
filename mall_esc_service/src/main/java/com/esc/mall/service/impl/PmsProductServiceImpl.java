@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * 商品 业务实现层
+ *
  * @author jiaorun
  * @date 2021/08/16 17:21
  **/
@@ -24,6 +25,7 @@ public class PmsProductServiceImpl implements IPmsProductService {
 
     /**
      * 构造器方式注入mapper对象
+     *
      * @param pmsProductDao
      */
     @Autowired

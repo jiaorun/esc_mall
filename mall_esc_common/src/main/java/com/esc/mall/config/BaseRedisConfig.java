@@ -20,6 +20,7 @@ import java.time.Duration;
 
 /**
  * Redis 基础 配置类
+ *
  * @author jiaorun
  * @date 2021/09/15 10:19
  **/

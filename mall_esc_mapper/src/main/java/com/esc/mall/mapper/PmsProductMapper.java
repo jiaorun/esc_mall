@@ -6,14 +6,13 @@ import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
 /**
- * 
  * @author jiaorun
  * @date 2021/08/16 16:30
  **/
 @Mapper
 @Component
-public interface PmsProductMapper{
-    
+public interface PmsProductMapper {
+
     int deleteByPrimaryKey(Long id);
 
     int insert(PmsProduct record);

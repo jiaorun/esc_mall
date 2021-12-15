@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mall_esc_queue" />
         <module name="mall_esc_mapper" />
         <module name="mall_esc_api" />
         <module name="mall_esc_service" />
@@ -14,6 +15,7 @@
         <module name="mall_esc_model" />
         <module name="mall_esc_common" />
         <module name="mall_esc_utils" />
+        <module name="mall_esc_mongo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +25,8 @@
       <module name="mall_esc_elasticsearch" target="8" />
       <module name="mall_esc_mapper" target="8" />
       <module name="mall_esc_model" target="8" />
+      <module name="mall_esc_mongo" target="8" />
+      <module name="mall_esc_queue" target="8" />
       <module name="mall_esc_service" target="8" />
       <module name="mall_esc_utils" target="8" />
     </bytecodeTargetLevel>
@@ -34,6 +38,8 @@
       <module name="mall_esc_elasticsearch" options="-parameters" />
       <module name="mall_esc_mapper" options="-parameters" />
       <module name="mall_esc_model" options="-parameters" />
+      <module name="mall_esc_mongo" options="-parameters" />
+      <module name="mall_esc_queue" options="-parameters" />
       <module name="mall_esc_service" options="-parameters" />
       <module name="mall_esc_utils" options="-parameters" />
     </option>

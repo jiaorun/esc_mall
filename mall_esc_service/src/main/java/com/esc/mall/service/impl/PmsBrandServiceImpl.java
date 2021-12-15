@@ -11,7 +11,6 @@ import com.esc.mall.model.PmsBrand;
 import com.esc.mall.model.PmsBrandExample;
 import com.esc.mall.service.IPmsBrandService;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +20,7 @@ import java.util.List;
 
 /**
  * 商品品牌 业务实现层
+ *
  * @author jiaorun
  * @date 2021/12/8 14:44
  **/

@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * 通用返回对象
+ *
  * @author jiaorun
  * @date 2021/08/16 14:39
  **/
@@ -31,7 +32,8 @@ public class MallResult<T> implements Serializable {
      */
     private T data;
 
-    public MallResult() {}
+    public MallResult() {
+    }
 
     public MallResult(long code, String message) {
         this.code = code;
@@ -57,6 +59,7 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 成功未返回结果
+     *
      * @param <T>
      * @return
      */
@@ -66,15 +69,17 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 成功返回结果
+     *
      * @param <T>
      * @return
      */
-    public static  <T> MallResult<T> success(T data) {
+    public static <T> MallResult<T> success(T data) {
         return new MallResult<T>(ResultInfoEnum.SUCCESS, data);
     }
 
     /**
      * 成功返回结果
+     *
      * @param message
      * @param data
      * @param <T>
@@ -86,6 +91,7 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 失败未返回结果
+     *
      * @param code
      * @param message
      * @param <T>
@@ -97,6 +103,7 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 失败未返回结果
+     *
      * @param errorCode
      * @param <T>
      * @return
@@ -107,6 +114,7 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 失败返回结果
+     *
      * @param errorCode
      * @param data
      * @param <T>
@@ -118,6 +126,7 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 失败返回结果
+     *
      * @param message
      * @param data
      * @param <T>
@@ -129,6 +138,7 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 未登录
+     *
      * @param data
      * @param <T>
      * @return
@@ -139,6 +149,7 @@ public class MallResult<T> implements Serializable {
 
     /**
      * 未授权
+     *
      * @param data
      * @param <T>
      * @return

@@ -8,6 +8,7 @@ import java.util.Date;
 
 /**
  * 日期 工具类
+ *
  * @author jiaorun
  * @date 2021/09/15 15:06
  **/
@@ -17,9 +18,10 @@ public class DateUtils implements Serializable {
 
     /**
      * 获取当前日期
+     *
+     * @return java.util.Date
      * @author jiaorun
      * @date 2021/09/15 15:07
-     * @return java.util.Date
      */
     public static Date currentDate() {
         LocalDateTime localDateTime = LocalDateTime.now();
