@@ -43,7 +43,7 @@ public class PmsBrandController {
 
     @ApiOperation("获取所有商品品牌")
     @GetMapping("/allPmsBrand")
-    @PreAuthorize("hasAuthority('pms:brand:read')")
+    //TODO @PreAuthorize("hasAuthority('pms:brand:read')")
     public MallResult<List<PmsBrand>> getAllPmsBrand() {
         return MallResult.success(pmsBrandService.getAllBrand());
     }
