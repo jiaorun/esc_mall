@@ -1,9 +1,8 @@
-package com.esc.mall.controller.elasticsearch;
+package com.esc.mall.elasticsearch;
 
 import com.esc.mall.api.page.CommonPage;
 import com.esc.mall.api.result.MallResult;
 import com.esc.mall.exception.Asserts;
-import com.esc.mall.exception.ResultInfoEnum;
 import com.esc.mall.product.document.EsProduct;
 import com.esc.mall.service.elasticsearch.IEsPmsProductService;
 import io.swagger.annotations.Api;

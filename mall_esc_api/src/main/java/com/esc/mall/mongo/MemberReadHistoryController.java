@@ -1,4 +1,4 @@
-package com.esc.mall.controller.mongo;
+package com.esc.mall.mongo;
 
 import com.esc.mall.api.result.MallResult;
 import com.esc.mall.document.MemberReadHistory;
